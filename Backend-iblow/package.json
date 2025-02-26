@@ -1,0 +1,25 @@
+{
+  "name": "backend-iblow",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "backend-iblow": "file:",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "googleapis": "^144.0.0",
+    "node-cache": "^5.1.2",
+    "pg": "^8.13.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9"
+  }
+}
