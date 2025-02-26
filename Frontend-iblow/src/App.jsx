@@ -6,19 +6,23 @@ import "./App.css";
 const API_URL = import.meta.env.VITE_API_URL;
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("wedding"); // Mặc định tag là "birthday"
+  const [searchTerm, setSearchTerm] = useState("Animal"); // Mặc định tag là "birthday"
   const [results, setResults] = useState([]);
 
   // Gọi API từ backend
-  const fetchImages = async (tag = "wedding") => {
+  const fetchImages = async (tag = "Animal") => {
     try {
       const response = await fetch(`${API_URL}/api/images?tag=${encodeURIComponent(tag)}`);
       const data = await response.json();
-      setResults(data);
+      if (response.status === 404) {
+        setResults([]); // Gán mảng rỗng nếu không tìm thấy
+      } else {
+        setResults(data);
+      }
     } catch (err) {
       console.error("Error fetching images", err);
     }
-  };
+  };  
 
   useEffect(() => {
     fetchImages(); // Load ảnh theo tag mặc định

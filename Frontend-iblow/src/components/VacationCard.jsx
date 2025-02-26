@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const VacationCard = ({ img, imgAlt, eyebrow, title, pricing, url }) => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 hover:scale-105 transition-transform duration-300">
-      <img className="rounded-lg w-full h-40 object-cover" src={img} alt={imgAlt} loading="lazy"/>
+      <img className="rounded-lg w-full h-80 object-cover" src={img} alt={imgAlt} loading="lazy"/>
       <div className="mt-4">
         <div className="text-xs font-bold text-sky-500">{eyebrow}</div>
         <div className="mt-1 text-gray-700">
