@@ -24,12 +24,13 @@ const ProductList = ({ results }) => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {results.map((item) => (
-            <div key={item.id} onClick={() => setSelectedImage(item.preview_url)}>
+            <div key={item.drive_id} onClick={() => setSelectedImage(item.preview_url)}>
               <VacationCard
-                key={item.id}
+                key={item.drive_id}
+                id={item.drive_id}
                 img={item.preview_url}
-                imgAlt={item.tags}
-                title={item.tags}
+                imgAlt={item.tags ? item.tags.join(', ') : item.name}
+                title={item.name || (item.tags && item.tags.join(', '))}
                 url={item.preview_url}
               />
             </div>
@@ -56,15 +57,10 @@ const ProductList = ({ results }) => {
 ProductList.propTypes = {
   results: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      type: PropTypes.string.isRequired,
-      previewURL: PropTypes.string,
-      tags: PropTypes.string,
-      videos: PropTypes.shape({
-        small: PropTypes.shape({
-          url: PropTypes.string.isRequired,
-        }).isRequired,
-      }),
+      drive_id: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      preview_url: PropTypes.string.isRequired,
+      tags: PropTypes.array,
     })
   ).isRequired,
 };

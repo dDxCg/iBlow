@@ -11,11 +11,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@canva/platform": "^2.1.0",
     "backend-iblow": "file:",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "googleapis": "^144.0.0",
     "node-cache": "^5.1.2",
+    "node-fetch": "^2.7.0",
     "pg": "^8.13.3"
   },
   "devDependencies": {
